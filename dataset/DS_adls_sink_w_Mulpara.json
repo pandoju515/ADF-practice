@@ -19,7 +19,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"folderPath": {
-					"value": "@concat('output/',dataset().DS_fileprefix, '/',dataset().DS_filedate)",
+					"value": "@concat('output/',dataset().DS_filedate, '/', dataset().DS_fileprefix)",
 					"type": "Expression"
 				},
 				"fileSystem": "adlsdevpractice4adf"
