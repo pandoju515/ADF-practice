@@ -187,11 +187,14 @@
 									"referenceName": "DS_adls_sink_w_Mulpara",
 									"type": "DatasetReference",
 									"parameters": {
+										"DS_filedate": {
+											"value": "@variables('filedate')",
+											"type": "Expression"
+										},
 										"DS_fileprefix": {
 											"value": "@variables('fileprefix')",
 											"type": "Expression"
-										},
-										"DS_filedate": "@variables('filedate')"
+										}
 									}
 								}
 							]

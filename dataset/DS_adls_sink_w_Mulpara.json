@@ -6,10 +6,10 @@
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"DS_fileprefix": {
+			"DS_filedate": {
 				"type": "string"
 			},
-			"DS_filedate": {
+			"DS_fileprefix": {
 				"type": "string"
 			}
 		},
