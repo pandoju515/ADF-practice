@@ -1,0 +1,58 @@
+{
+	"name": "8_copyactivity_dataset_mul_parameter",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "BinarySource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true
+						},
+						"formatSettings": {
+							"type": "BinaryReadSettings"
+						}
+					},
+					"sink": {
+						"type": "BinarySink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						}
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "adls_DS_src_mul_parameter",
+						"type": "DatasetReference",
+						"parameters": {
+							"foldername": "input",
+							"filename": "network paths.txt"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "adls_DS_outbound",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2026-03-10T13:40:49Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

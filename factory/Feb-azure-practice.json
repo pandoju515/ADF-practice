@@ -1,0 +1,9 @@
+{
+	"name": "Feb-azure-practice",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "e073d7d2-f5bf-438f-8c63-b02e2a9a6c7d",
+		"tenantId": "8ccfbac3-4d9c-44a4-8da5-6a3314828c5f"
+	}
+}

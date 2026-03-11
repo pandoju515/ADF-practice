@@ -1,0 +1,32 @@
+{
+	"name": "13_converttimezone_activity",
+	"properties": {
+		"activities": [
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "currenttimestamp",
+					"value": {
+						"value": "@convertFromUtc(utcNow(), 'India Standard Time')",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"currenttimestamp": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2026-03-06T15:19:33Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

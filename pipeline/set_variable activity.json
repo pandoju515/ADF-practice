@@ -1,0 +1,87 @@
+{
+	"name": "set_variable activity",
+	"properties": {
+		"description": "set_variable activity",
+		"activities": [
+			{
+				"name": "set_variable_act_1",
+				"description": "",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "pname",
+						"value": "test message"
+					}
+				],
+				"typeProperties": {
+					"variableName": "person_name",
+					"value": "praveen"
+				}
+			},
+			{
+				"name": "set_var_act_2",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "set_variable_act_1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "msg",
+					"value": "his age  is 23"
+				}
+			},
+			{
+				"name": "set_variabele_msg",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "set_var_act_2",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "complete_msg",
+					"value": {
+						"value": "@concat('person name is', variables('person_name'), 'and age is', variables('msg'))",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"person_name": {
+				"type": "String"
+			},
+			"msg": {
+				"type": "String"
+			},
+			"complete_msg": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2026-03-02T09:33:55Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

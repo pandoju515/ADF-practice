@@ -1,0 +1,86 @@
+{
+	"name": "10_datefunction_variables",
+	"properties": {
+		"activities": [
+			{
+				"name": "getdatevariable",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "dt",
+					"value": {
+						"value": "@utcNow()",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "getfiledate",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "getdatevariable",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "filedate_format",
+					"value": {
+						"value": "@formatDateTime(variables('dt'), 'ddMMyyyy')",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "getfiledate",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "filename",
+					"value": {
+						"value": "@concat('order_', variables('filedate_format'), '.txt')",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"dt": {
+				"type": "String"
+			},
+			"filedate_format": {
+				"type": "String"
+			},
+			"filename": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2026-03-06T14:18:30Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

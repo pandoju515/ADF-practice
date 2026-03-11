@@ -1,0 +1,19 @@
+{
+	"name": "adls_DS_outbound",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage_Linkedservice",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "output",
+				"fileSystem": "adlsdevpractice4adf"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

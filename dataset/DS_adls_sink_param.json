@@ -1,0 +1,27 @@
+{
+	"name": "DS_adls_sink_param",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage_Linkedservice",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"DS_filename": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": {
+					"value": "@concat('output/',dataset().DS_filename)",
+					"type": "Expression"
+				},
+				"fileSystem": "adlsdevpractice4adf"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

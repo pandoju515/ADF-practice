@@ -1,0 +1,66 @@
+{
+	"name": "16_copyactivity_listoffiles",
+	"properties": {
+		"description": "16_copyactivity_listoffiles",
+		"activities": [
+			{
+				"name": "Copy data",
+				"description": "Copy data with file details",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "adlsdevpractice4adf/input//"
+					},
+					{
+						"name": "Destination",
+						"value": "adlsdevpractice4adf/output/"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "BinarySource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"fileListPath": "adlsdevpractice4adf/input/file details.txt",
+							"deleteFilesAfterCompletion": false
+						},
+						"formatSettings": {
+							"type": "BinaryReadSettings"
+						}
+					},
+					"sink": {
+						"type": "BinarySink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						}
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "adls_DS_inputfolder",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "adls_DS_outbound",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2026-03-10T13:40:50Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

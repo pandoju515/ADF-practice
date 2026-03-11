@@ -1,0 +1,30 @@
+{
+	"name": "DS_adls_sink_w_Mulpara",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage_Linkedservice",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"DS_fileprefix": {
+				"type": "string"
+			},
+			"DS_filedate": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": {
+					"value": "@concat('output/',dataset().DS_fileprefix, '/',dataset().DS_filedate)",
+					"type": "Expression"
+				},
+				"fileSystem": "adlsdevpractice4adf"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
