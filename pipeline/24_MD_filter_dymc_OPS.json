@@ -73,7 +73,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"variableName": "filename",
+					"variableName": "filedate",
 					"value": {
 						"value": "@formatDateTime(utcNow(), 'ddMMyyyy')",
 						"type": "Expression"
@@ -184,7 +184,7 @@
 							],
 							"outputs": [
 								{
-									"referenceName": "DS_adls_sink_w_Mulpara",
+									"referenceName": "DS_adls_sink_mulpara",
 									"type": "DatasetReference",
 									"parameters": {
 										"DS_filedate": {

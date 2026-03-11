@@ -1,5 +1,5 @@
 {
-	"name": "DS_adls_sink_w_Mulpara",
+	"name": "DS_adls_sink_mulpara",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorage_Linkedservice",
